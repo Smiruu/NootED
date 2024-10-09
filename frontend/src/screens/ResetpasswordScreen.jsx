@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendrequestChangePassword } from '../actions/userActions'; // Adjust the import based on your file structure
+import './css/resetpasswordscreen.css'
 
 const ResetPasswordScreen = () => {
     const [email, setEmail] = useState('');
@@ -14,24 +15,40 @@ const ResetPasswordScreen = () => {
     };
   
     return (
-      <div style={styles.container}>
-        <h1 style={styles.header}>Reset Password</h1>
+      <div style={styles.container } className='box'>
+       
+        <h1 style={styles.header} className='font'>Reset Password</h1>
         <form onSubmit={handleSubmit} style={styles.form}>
+ 
           <input
             type="email"
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            style={styles.input}
+            style={styles.input } 
           />
-          <button type="submit" style={styles.button} disabled={loading}>
+
+
+
+          
+          
+          <button type="submit" style={styles.button} disabled={loading} className='font' >
             {loading ? 'Sending...' : 'Send Reset Link'}
           </button>
         </form>
         {success && <p style={styles.successMessage}>Reset link sent! Check your email.</p>}
         {error && <p style={styles.errorMessage}>{error}</p>}
+
       </div>
+
+      
+      
+
+      
+
+
+
     );
   };
   
@@ -48,6 +65,7 @@ const styles = {
     backgroundColor: '#f9f9f9',
     borderRadius: '8px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+   
   },
   header: {
     marginBottom: '20px',
@@ -80,6 +98,10 @@ const styles = {
     color: 'red',
     marginTop: '10px',
   },
+
+
+  
+  
 };
 
 export default ResetPasswordScreen;

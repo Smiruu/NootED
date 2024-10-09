@@ -1,6 +1,6 @@
 # Ignore the virtual environment directory
 myvenv/
-
+.venv/
 # Python cache files
 __pycache__/
 *.pyc
@@ -14,7 +14,7 @@ __pycache__/
 *.db
 *.sqlite3
 
-# IDE-specific files
+# IDE-specific filescd
 .vscode/
 .idea/
 *.sublime-workspace
@@ -25,3 +25,11 @@ __pycache__/
 
 # Miscellaneous
 *.log
+
+
+#Email: workbench@gmail.com
+#Name: Tyler
+#password: 111
+
+
+
