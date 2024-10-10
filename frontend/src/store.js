@@ -6,13 +6,95 @@ import {
   passwordChangeReducer,
   SendChangePasswordReducer,
   ConfirmChangePasswordReducer,
+  userProfileReducer,
 } from "./reducers/userReducers";
+import{
+  todoListReducer,
+  todoCreateReducer,
+  todoUpdateReducer,
+  todoDeleteReducer,
+}
+from './reducers/todolistReducers';
+import {
+  favoriteGroupReducer,
+  favoriteGroupRemoveReducer,
+  groupCreateReducer,
+  groupImageRemoveReducer,
+  groupImageUploadReducer,
+  groupJoinReducer,
+  groupsListReducer,
+  userGroupsReducer,
+  groupLeaveReducer,
+  groupDetailsReducer,
+  groupDeleteReducer
+} from "./reducers/groupReducers"
+
+import {
+  titleListReducer,
+  titleCreateReducer,
+  titleUpdateReducer,
+  titleDeleteReducer,
+  videoCreateReducer,
+  videoDeleteReducer,
+  videoListReducer,
+  videoUpdateReducer,
+  fileListReducer,
+  fileCreateReducer,
+  fileUpdateReducer,
+  fileDeleteReducer,
+
+} from "./reducers/noteReducers";
+
+
+
+import { conversationReducer, userListReducer } from "./reducers/chatsReducers";
 const reducer = {
+  //USERS
   userRegister: userRegisterReducer,
   userLogin: userLoginReducer,
   passwordChange: passwordChangeReducer,
   SendcChangePassword: SendChangePasswordReducer,
   ConfirmChangePassword: ConfirmChangePasswordReducer,
+  userProfile: userProfileReducer,
+  //TODOLIST
+  todoList: todoListReducer,
+  todoCreate: todoCreateReducer,
+  todoUpdate: todoUpdateReducer,
+  todoDelete: todoDeleteReducer,
+  //GROUPS
+  groupCreate: groupCreateReducer,
+  groupImageUpload: groupImageUploadReducer,
+  gruopImageRemove: groupImageRemoveReducer,
+  groupJoin: groupJoinReducer,
+  favoriteGroup:favoriteGroupReducer,
+  favoriteGroupRemove: favoriteGroupRemoveReducer,
+  userGroups: userGroupsReducer,
+  groupsList: groupsListReducer,
+  groupLeave: groupLeaveReducer,
+  groupDetails: groupDetailsReducer,
+  groupDelete: groupDeleteReducer,
+  //CHATS
+  userList: userListReducer,
+  conversation: conversationReducer,
+  //TITLES
+  titleList: titleListReducer,
+  titleCreate: titleCreateReducer,
+  titleUpdate: titleUpdateReducer,
+  titleDelete: titleDeleteReducer,
+  //VIDEOS
+  videoList: videoListReducer,
+  videoCreate: videoCreateReducer,
+  videoUpdate: videoUpdateReducer,
+  videoDelete: videoDeleteReducer,
+  //FILES 
+  fileList: fileListReducer,
+  fileCreate: fileCreateReducer,
+  fileUpdate: fileUpdateReducer,
+  fileDelete: fileDeleteReducer,
+
+
+
+
 };
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
@@ -27,7 +109,7 @@ const middleware = [thunk];
 
 const store = configureStore({
   reducer,
-  initialState,
+  preloadedState: initialState,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(middleware),
 });
