@@ -38,10 +38,7 @@ const Title = () => {
         setShowModal(true); // Open the modal
     };
 
-    const handleClose = () => {
-        window.location.reload();
-        setShowModal(false)
-    }; // Close the modal
+    const handleClose = () => setShowModal(false); // Close the modal
 
     const handleSubmit = () => {
         if (editingTitleId) {
@@ -49,7 +46,6 @@ const Title = () => {
         } else {
             dispatch(createTitle(group_tag, { name: titleInput }));
         }
-        window.location.reload();
         handleClose(); // Close the modal after submission
     };
 
@@ -65,7 +61,7 @@ const Title = () => {
 
     return (
         <div>
-            <Button onClick={() => handleOpen()}>+</Button>
+            <Button variant="primary" onClick={() => handleOpen()}>Add Title</Button>
 
             {/* Modal for creating, editing, and displaying titles */}
             <Modal show={showModal} onHide={handleClose} size="lg">

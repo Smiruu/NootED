@@ -35,20 +35,10 @@ import {
     FILE_LIST_SUCCESS,
     FILE_UPDATE_FAIL,
     FILE_UPDATE_REQUEST,
-    FILE_UPDATE_SUCCESS,
-    GET_FILES_AND_VIDEOS_REQUEST,
-    GET_FILES_AND_VIDEOS_SUCCESS,
-    GET_FILES_AND_VIDEOS_FAIL
+    FILE_UPDATE_SUCCESS
 
 
 } from '../constants/noteConstants'
-
-const initialState = {
-    loading: false,
-    files: [],
-    videos: [],
-    error: null,
-};
 
 // Reducer for listing titles
 export const titleListReducer = (state = { titles: [] }, action) => {
@@ -218,20 +208,3 @@ export const fileDeleteReducer = (state = {}, action) => {
     }
 }
 
-export const fileVideoReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case GET_FILES_AND_VIDEOS_REQUEST:
-            return { ...state, loading: true };
-        case GET_FILES_AND_VIDEOS_SUCCESS:
-            return {
-                loading: false,
-                files: action.payload.files,
-                videos: action.payload.videos,
-                error: null,
-            };
-        case GET_FILES_AND_VIDEOS_FAIL:
-            return { loading: false, error: action.payload };
-        default:
-            return state;
-    }
-};

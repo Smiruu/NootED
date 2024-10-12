@@ -73,74 +73,54 @@ const ChatWindow = ({ receiverTag, receiverName, receiverPhoto }) => {
 
   return (
     <div className="chat-window">
-      <div className="chat-messages">
+      <div className="chat-name">
+        <img src={receiverPhoto} className="conversation-photo"></img>
+        <h2>{receiverName}</h2>
+      </div>
+      <div id="chat-messages" className="chat-messages">
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={`message-chat-window ${
+            className={`message ${
               msg.user === userInfo.token.name ? "sent" : "received"
             }`}
           >
-            <div
-              className={`message-body ${
-                msg.user === userInfo.token.name ? "sent" : "received"
-              }`}
-            >
-              {msg.user === userInfo.token.name ? (
-                <>
-                  <div className="message-content-wrapper">
-                    <strong className="message-header">{msg.user}</strong>
-                    <span className="message-content">
-                      {msg.content.split(/(?<=\G.{50})/).map((part, i) => (
-                        <React.Fragment key={i}>
-                          {part}
-                          <br />
-                        </React.Fragment>
-                      ))}
-                    </span>
-                  </div>
-                  <div className="message-photo-wrapper">
-                    {msg.photo ? (
-                      <img
-                        src={msg.photo}
-                        alt={`${msg.user}'s profile`}
-                        className="message-photo"
-                      />
-                    ) : (
-                      <div className="chat-placeholder" />
-                    )}
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="message-photo-wrapper">
-                    {msg.photo ? (
-                      <img
-                        src={msg.photo}
-                        alt={`${msg.user}'s profile`}
-                        className="message-photo"
-                      />
-                    ) : (
-                      <div className="chat-placeholder" />
-                    )}
-                  </div>
-                  <div className="message-content-wrapper">
-                    <strong className="message-header">{msg.user}</strong>
-                    <span className="message-content">
-                      {msg.content.split(/(?<=\G.{50})/).map((part, i) => (
-                        <React.Fragment key={i}>
-                          {part}
-                          <br />
-                        </React.Fragment>
-                      ))}
-                    </span>
-                  </div>
-                </>
-              )}
-            </div>
+            {msg.user === userInfo.token.name ? (
+              <>
+                <div className="message-header">
+                  <strong>{msg.user}</strong> {/* User's name on top */}
+                </div>
+                <div className="message-body">
+                  <span className="message-content">{msg.content}</span>
+                  {msg.photo && (
+                    <img
+                      src={msg.photo}
+                      alt={`${msg.user}'s profile`}
+                      className="message-photo"
+                    />
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="message-header">
+                  <strong>{msg.user}</strong> {/* User's name on top */}
+                </div>
+                <div className="message-body">
+                  {msg.photo && (
+                    <img
+                      src={msg.photo}
+                      alt={`${msg.user}'s profile`}
+                      className="message-photo"
+                    />
+                  )}
+                  <span className="message-content">{msg.content}</span>
+                </div>
+              </>
+            )}
           </div>
         ))}
-        <div ref={messagesEndRef} />
+        <div ref={messagesEndRef} /> {/* Empty div for scrolling */}
       </div>
 
       <form onSubmit={handleSendMessage}>
@@ -150,11 +130,8 @@ const ChatWindow = ({ receiverTag, receiverName, receiverPhoto }) => {
           onChange={(e) => setNewMessage(e.target.value)}
           placeholder="Type your message here..."
           required
-          className="chat-input"
         />
-        <button type="submit" className="chat-button">
-          Send
-        </button>
+        <button type="submit">Send</button>
       </form>
     </div>
   );

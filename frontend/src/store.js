@@ -42,6 +42,7 @@ import {
   fileCreateReducer,
   fileUpdateReducer,
   fileDeleteReducer,
+<<<<<<< HEAD
   fileVideoReducer,
 
 } from "./reducers/noteReducers";
@@ -51,6 +52,11 @@ import {
   announcementCreateReducer,
   announcementDeleteReducer,
 } from "./reducers/announcementReducers";
+=======
+
+} from "./reducers/noteReducers";
+
+>>>>>>> 955ce4d6a4db18e4c721bef8cfef6111f698c49d
 
 
 import { conversationReducer, userListReducer } from "./reducers/chatsReducers";
@@ -98,11 +104,14 @@ const reducer = {
   fileUpdate: fileUpdateReducer,
   fileDelete: fileDeleteReducer,
 
+<<<<<<< HEAD
   fileVideo: fileVideoReducer,
 
   announcementList: announcementListReducer,
   announcementCreate: announcementCreateReducer,
   announcementDelete: announcementDeleteReducer,
+=======
+>>>>>>> 955ce4d6a4db18e4c721bef8cfef6111f698c49d
 
 
 

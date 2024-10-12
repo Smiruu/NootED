@@ -241,4 +241,8 @@ def get_group_meetings(request, group_tag):
     meetings = Meeting.objects.filter(group=group)
     meetings_data = MeetingSerializer(meetings, many=True).data
 
+<<<<<<< HEAD
     return Response({'meetings': meetings_data}, status=status.HTTP_200_OK)
+=======
+    return Response({'meetings': meetings_data}, status=status.HTTP_200_OK)
+>>>>>>> 955ce4d6a4db18e4c721bef8cfef6111f698c49d

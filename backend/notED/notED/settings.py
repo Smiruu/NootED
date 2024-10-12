@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'rest_framework',
     "corsheaders",
     'notes.apps.NotesConfig',
-    'announcements.apps.AnnouncementsConfig',
     
 ]
 
